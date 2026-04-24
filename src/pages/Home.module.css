@@ -1,0 +1,12 @@
+.home {
+  background-color: #141414;
+  min-height: 100vh;
+}
+
+.content {
+  padding-bottom: 60px;
+}
+
+.loading {
+  height: 100vh;
+}

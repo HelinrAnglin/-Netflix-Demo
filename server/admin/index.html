@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANIME 管理后台</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Login Page -->
+  <div id="login-page" class="page active">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-logo">ANIME<span>.</span></div>
+        <h1 class="login-title">管理后台</h1>
+        <p class="login-subtitle">请登录以继续</p>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">邮箱</label>
+            <input type="email" id="login-email" placeholder="admin@anime.com" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">密码</label>
+            <input type="password" id="login-password" placeholder="admin123456" required>
+          </div>
+          <div id="login-error" class="form-error"></div>
+          <button type="submit" class="btn btn-primary btn-full">登录</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="admin-page" class="page">
+    <aside class="sidebar">
+      <div class="sidebar-logo">ANIME</div>
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          仪表盘
+        </a>
+        <a href="#animes" class="nav-item" data-page="animes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/></svg>
+          动漫管理
+        </a>
+        <a href="#episodes" class="nav-item" data-page="episodes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          剧集管理
+        </a>
+        <a href="#banners" class="nav-item" data-page="banners">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          轮播管理
+        </a>
+        <a href="#users" class="nav-item" data-page="users">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/></svg>
+          用户管理
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="admin-info">
+          <span class="admin-avatar" id="admin-avatar">A</span>
+          <span class="admin-name" id="admin-name">管理员</span>
+        </div>
+        <button id="logout-btn" class="btn btn-outline btn-sm">退出</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="content-header">
+        <h2 id="page-title">仪表盘</h2>
+        <div class="header-actions">
+          <button id="refresh-btn" class="btn btn-outline btn-sm">刷新</button>
+        </div>
+      </header>
+      <div class="content-body" id="content-body">
+        <!-- Page content loads here dynamically -->
+      </div>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/animes.js"></script>
+  <script src="js/pages/episodes.js"></script>
+  <script src="js/pages/banners.js"></script>
+  <script src="js/pages/users.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

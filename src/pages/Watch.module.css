@@ -1,0 +1,948 @@
+.watchPage {
+  background-color: #141414;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.watchContainer {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px 60px;
+}
+
+/* ===== Flex Layout ===== */
+.playerLayout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.playerSection {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== Video Player ===== */
+.playerWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-color: #000000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.videoPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000000;
+}
+
+.placeholderContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+
+.placeholderGradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.playButtonOverlay {
+  position: relative;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(229, 9, 20, 0.9);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: 16px;
+}
+
+.playButtonOverlay:hover {
+  background-color: #E50914;
+  border-color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.playIcon {
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+}
+
+.placeholderText {
+  position: relative;
+  z-index: 2;
+  color: #B3B3B3;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* ===== Episode Nav ===== */
+.episodeNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  gap: 12px;
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #2D2D2D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navButton:hover:not(.navButtonDisabled) {
+  background-color: #E50914;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.navButtonDisabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background-color: #1a1a1a;
+}
+
+.navButtonDisabled:hover {
+  background-color: #1a1a1a;
+  transform: none;
+  box-shadow: none;
+}
+
+.navEpisodeInfo {
+  color: #B3B3B3;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ===== Action Bar (Like/Dislike/Add) ===== */
+.actionBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0 16px;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #B3B3B3;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.actionBtn:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+}
+
+.actionBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.actionBtnActive {
+  color: #E50914;
+  border-color: #E50914;
+}
+
+.actionBtnActive:hover {
+  color: #E50914;
+  border-color: #E50914;
+}
+
+.actionSeparator {
+  width: 1px;
+  height: 24px;
+  background-color: #2D2D2D;
+  margin: 0 4px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+  border-radius: 4px;
+  color: #E50914;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.addBtn:hover {
+  background-color: rgba(229, 9, 20, 0.25);
+  border-color: #E50914;
+}
+
+.addBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ===== Add Collection Modal ===== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  background-color: #1a1a1a;
+  border: 1px solid #2D2D2D;
+  border-radius: 8px;
+  width: 400px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  animation: modalSlideIn 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #2D2D2D;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.modalCloseBtn {
+  background: none;
+  border: none;
+  color: #B3B3B3;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.modalCloseBtn:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modalCloseBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.modalBody {
+  padding: 16px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.collectionItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid #2D2D2D;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 8px;
+}
+
+.collectionItem:hover {
+  border-color: #E50914;
+  background-color: rgba(229, 9, 20, 0.08);
+}
+
+.collectionItemActive {
+  border-color: #E50914;
+  background-color: rgba(229, 9, 20, 0.12);
+}
+
+.collectionCheckbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.collectionItemActive .collectionCheckbox {
+  border-color: #E50914;
+  background-color: #E50914;
+}
+
+.collectionCheckbox svg {
+  width: 12px;
+  height: 12px;
+  color: #FFFFFF;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.collectionItemActive .collectionCheckbox svg {
+  opacity: 1;
+}
+
+.collectionName {
+  flex: 1;
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.collectionCount {
+  font-size: 12px;
+  color: #808080;
+}
+
+.newCollectionSection {
+  padding: 12px 24px 20px;
+  border-top: 1px solid #2D2D2D;
+  display: flex;
+  gap: 8px;
+}
+
+.newCollectionInput {
+  flex: 1;
+  padding: 10px 14px;
+  background-color: #2D2D2D;
+  border: 1px solid #454545;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.newCollectionInput:focus {
+  border-color: #E50914;
+}
+
+.newCollectionBtn {
+  padding: 10px 16px;
+  background-color: #E50914;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.newCollectionBtn:hover {
+  background-color: #B20710;
+}
+
+.modalLoginHint {
+  text-align: center;
+  padding: 40px 24px;
+  color: #B3B3B3;
+  font-size: 14px;
+}
+
+/* ===== Anime Info ===== */
+.animeInfo {
+  padding: 8px 0 24px;
+}
+
+.animeTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 10px;
+}
+
+.animeMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #B3B3B3;
+  font-size: 14px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.metaDot {
+  color: #555;
+}
+
+.animeSynopsis {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0;
+}
+
+/* ===== Comments Section ===== */
+.commentsSection {
+  border-top: 1px solid #2D2D2D;
+  padding: 20px 0;
+}
+
+.commentsToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.commentsToggle:hover {
+  color: #E50914;
+}
+
+.commentsToggleLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.commentsToggleIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.commentsToggleIconOpen {
+  transform: rotate(180deg);
+}
+
+.commentsCount {
+  font-size: 14px;
+  color: #808080;
+  font-weight: 400;
+}
+
+.commentsBody {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.commentsBodyOpen {
+  max-height: 800px;
+}
+
+.commentInputWrapper {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0 20px;
+}
+
+.commentAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E50914, #B20710);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.commentInput {
+  flex: 1;
+  padding: 10px 14px;
+  background-color: #2D2D2D;
+  border: 1px solid #454545;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.commentInput:focus {
+  border-color: #E50914;
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 8px;
+}
+
+.commentItem {
+  display: flex;
+  gap: 12px;
+}
+
+.commentUserAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E50914, #B20710);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.commentBody {
+  flex: 1;
+}
+
+.commentUser {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.commentText {
+  font-size: 13px;
+  color: #B3B3B3;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.commentTime {
+  font-size: 11px;
+  color: #555;
+  margin-top: 6px;
+}
+
+/* ===== Related Section ===== */
+.relatedSection {
+  border-top: 1px solid #2D2D2D;
+  padding: 24px 0;
+}
+
+.relatedTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 16px;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.relatedCard {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+}
+
+.relatedCard:hover {
+  transform: scale(1.05);
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+.relatedCardPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #B3B3B3;
+  font-size: 12px;
+  text-align: center;
+  padding: 12px;
+}
+
+.relatedCardPlaceholder .playIconSmall {
+  width: 24px;
+  height: 24px;
+  margin: 0 0 8px 2px;
+  opacity: 0.6;
+}
+
+.relatedCardTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 8px 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+/* ===== Episode Sidebar ===== */
+.sidebar {
+  width: 380px;
+  flex-shrink: 0;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 140px);
+  position: sticky;
+  top: 100px;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #2D2D2D;
+  flex-shrink: 0;
+}
+
+.sidebarTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.episodeCount {
+  font-size: 13px;
+  color: #808080;
+}
+
+.episodeList {
+  overflow-y: auto;
+  flex: 1;
+  padding: 8px 0;
+}
+
+.episodeList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.episodeList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.episodeList::-webkit-scrollbar-thumb {
+  background: #E50914;
+  border-radius: 3px;
+}
+
+.episodeItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  color: #B3B3B3;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.episodeItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+}
+
+.episodeItemActive {
+  background-color: rgba(229, 9, 20, 0.1);
+  border-left-color: #E50914;
+  color: #FFFFFF;
+}
+
+.episodeItemActive:hover {
+  background-color: rgba(229, 9, 20, 0.15);
+}
+
+.episodeNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #2D2D2D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.episodeItemActive .episodeNumber {
+  background-color: #E50914;
+}
+
+.episodeInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.episodeTitle {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.episodeDuration {
+  font-size: 12px;
+  color: #808080;
+}
+
+/* ===== Loading & Error States ===== */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  gap: 16px;
+  color: #B3B3B3;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #2D2D2D;
+  border-top-color: #E50914;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  gap: 20px;
+}
+
+.errorText {
+  color: #E50914;
+  font-size: 18px;
+}
+
+.backButton {
+  padding: 12px 32px;
+  background-color: #E50914;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.backButton:hover {
+  background-color: #B20710;
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+  .watchContainer {
+    padding: 20px 40px;
+  }
+
+  .sidebar {
+    width: 320px;
+  }
+
+  .relatedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .playerLayout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-height: none;
+    position: static;
+  }
+
+  .episodeList {
+    max-height: 300px;
+  }
+
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .watchContainer {
+    padding: 16px 20px;
+  }
+
+  .watchPage {
+    padding-top: 64px;
+  }
+
+  .animeTitle {
+    font-size: 1.5rem;
+  }
+
+  .playButtonOverlay {
+    width: 60px;
+    height: 60px;
+  }
+
+  .playIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sidebar {
+    border-radius: 0;
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+  }
+
+  .episodeItem {
+    padding: 10px 16px;
+  }
+
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .actionBar {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .episodeNav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navEpisodeInfo {
+    order: -1;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 8px;
+  }
+
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalContent {
+    width: calc(100vw - 20px);
+  }
+}
